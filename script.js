@@ -85,19 +85,19 @@ const getWeatherDataFromLandL = (position) =>{
 
             getWeatherInfo(x, y, office)
 
-            reverseGeocoder.getClientLocation({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-            },function(result) {
-                document.querySelector('#location').innerText = result.city
-            });
+            
 
         })
         .catch((err)=>{
             console.log("CANNOT GET X, Y and OFFICE data:");
             console.log(err);
         })
-    
+        reverseGeocoder.getClientLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        },function(result) {
+            document.querySelector('#location').innerText = result.city
+        });
 }
 
 
